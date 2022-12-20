@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - HOTEL1</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/css/site.css" />
+    <style>
+       
+         .nav-item:hover{
+            background-color: orangered;
+            color: black;
+            padding: 10px 25px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            border-radius: 25px
+        }
+        
+    </style>
+</head>
+<body>
+    <header>
+
+        <center><img src="data:image/png;base64,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" /></center>
+       <br /> <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3">
+            <div class="container">
+                
+                
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Pearl Hotel</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Hotels" asp-action="SearchForm">SearchForm</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Hotels" asp-action="Index">Hotel</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Hotels" asp-action="HotelList">HotelList</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Customers" asp-action="Index">Customers</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Rooms" asp-action="Index">Rooms</a>
+                        </li>
+                    </ul>
+                    <partial name="_LoginPartial" />
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-light bg-dark">
+        <div class="container">
+            &copy; 2022 - Pearl Hotel- <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

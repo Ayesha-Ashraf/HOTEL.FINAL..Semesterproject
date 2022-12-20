@@ -1,0 +1,22 @@
+﻿@model IEnumerable<HOTEL1.Models.Hotel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<div class="row">
+@foreach (var item in Model)
+{
+
+
+
+    <div id="Container" class="col-lg-3 col-md-4 col-sm-1">
+        <img id="Image" style="width: 100%; height: 100%;" src="@item.URL" alt="@item.Title" />
+        <span id="Title">@item.Title</span>
+        <span id="Price">@item.Price</span>
+        <span id="Quantity"><input id="quantityInput" type="number" name="Quantity" value="" placeholder="0" /></span>
+        <span id="CartButton"><button id="btn"><span class="fa fa-shopping-cart"></span>Add to Cart</button></span>
+    </div>
+
+
+}
+</div>

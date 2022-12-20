@@ -1,0 +1,87 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+<h1 style="text-align:center;"> Hotel Pearl - <span style="font-size:20px; font-style:italic;">Online PEARL HOTEL </span></h1>
+
+<div class="text-center">
+    <div class="row">
+        @foreach (var hotel in ViewData["Hotels"] as List<Hotel>)
+
+        {
+
+
+        <div id="Container" class="col-lg-3 col-md-4 col-sm-1">
+            <a asp-controller="Hotels" asp-action="HotelDetails" asp-route-id="@hotel.Id">
+                    <img id="Image" style="width: 100%; height: 100%;" src="@hotel.URL" alt="@hotel.Title" />
+                    <span id="Title">@hotel.Title</span>
+                <center>
+                    <span id="location" style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 16px;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    color: black;
+    font-style: italic;">@hotel.location</span>
+                    <span id="address" style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 16px;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    color:gray;
+    font-style: italic;">@hotel.Address</span>
+                </center>
+
+            </a>
+                @if (SignInManager.IsSignedIn(User))
+                {
+                    <form asp-controller="Bookeds" asp-action="Create">
+                        <span id="Quantity"><input id="quantityInput" type="number" name="Quantity" value="" placeholder="0" /></span>
+                        <input type="hidden" name="HotelId" value="@hotel.Id" />
+
+
+                        <input type="hidden" name="UserId" value="@UserManager.GetUserId(User)" />
+                        <span id="CartButton"><button id="btn" type="submit"><span class="fa fa-shopping-cart"></span>Add to Cart</button></span>
+                    </form>
+                }
+
+        </div>
+
+
+    }
+</div>
+
+
+    <div class="text-center">
+        <div class="row">
+            @foreach (var room in ViewData["Rooms"] as List<Room>)
+            {
+
+                <div id="Container" class="col-lg-3 col-md-4 col-sm-1">
+                    <a asp-controller="Rooms" asp-action="Index" asp-route-id="@room.Id">
+                        <img id="Image" style="width: 100%; height: 100%;" src="@room.Image" alt="@room.Name" />
+                        <span id="Title">@room.Image</span>
+                    </a>
+                    <span id="Price">Rs. @room.Price</span>
+                    @if (SignInManager.IsSignedIn(User))
+                    {
+                        <form asp-controller="Orders" asp-action="Create">
+                            <span id="bookQuantity"><input id="quantityInput" type="number" name="Quantity" value="" placeholder="0" /></span>
+                            <input type="hidden" name="RoomId" value="@room.Id" />
+                            <input type="hidden" name="UserId" value="@UserManager.GetUserId(User)" />
+                            <span id="CartButton"><button id="btn" type="submit"><span class="fa fa-shopping-cart"></span>Add to Cart</button></span>
+                        </form>
+                    }
+                </div>
+            }
+        </div>
+
+    </div>
+    Footer
+
+
+  
