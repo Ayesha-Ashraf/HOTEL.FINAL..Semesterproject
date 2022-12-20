@@ -30,6 +30,13 @@ namespace HOTEL1.Controllers
             return View();
 
         }
+        public async Task<IActionResult> Dinning()
+        {
+
+            return View();
+
+        }
+
         public IActionResult Privacy()
         {
             return View();

@@ -12,11 +12,11 @@
          .nav-item:hover{
             background-color: orangered;
             color: black;
-            padding: 10px 25px;
+            
             text-align: center;
             text-decoration: none;
-            display: inline-block;
-            border-radius: 25px
+            
+            border-radius: 1em
         }
         
     </style>
@@ -53,9 +53,13 @@
                             <a class="nav-link text-light" asp-area="" asp-controller="Bookeds" asp-action="Index">Booked</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Dinning">Dinning</a>
                         </li>
 
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        </li>
+                      
                     </ul>
                     <partial name="_LoginPartial" />
                 </div>
