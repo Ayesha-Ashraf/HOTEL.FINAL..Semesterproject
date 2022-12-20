@@ -64,12 +64,12 @@
                 <div id="Container" class="col-lg-3 col-md-4 col-sm-1">
                     <a asp-controller="Rooms" asp-action="Index" asp-route-id="@room.Id">
                         <img id="Image" style="width: 100%; height: 100%;" src="@room.Image" alt="@room.Name" />
-                        <span id="Title">@room.Image</span>
+                        <span id="Title">@room.Name</span>
                     </a>
                     <span id="Price">Rs. @room.Price</span>
                     @if (SignInManager.IsSignedIn(User))
                     {
-                        <form asp-controller="Orders" asp-action="Create">
+                        <form asp-controller="Bookeds" asp-action="Create">
                             <span id="bookQuantity"><input id="quantityInput" type="number" name="Quantity" value="" placeholder="0" /></span>
                             <input type="hidden" name="RoomId" value="@room.Id" />
                             <input type="hidden" name="UserId" value="@UserManager.GetUserId(User)" />
